@@ -1,0 +1,16 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: testapp_dev
+
+test:
+  <<: *default
+  database: testapp_test
+
+production:
+  <<: *default
+  database: testapp
