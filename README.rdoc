@@ -5,7 +5,7 @@ This is maintained by has_and_belongs_to_many association between books and user
 
   * Install ruby 2.0.0 (Install it via [rvm.io](http://rvm.io/rvm/install))
   * git clone
-  * cd send_wishes
+  * cd book_management
   * bundle install
   * bundle exec rake db:create && rake db:migrate
   * bundle exec rails s (This runs on Port 3000)
