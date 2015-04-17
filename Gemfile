@@ -34,6 +34,7 @@ group :development, :test do
   gem 'capybara'
   gem "selenium-webdriver"
   gem 'chromedriver-helper'
+  gem 'simplecov'
 end
 
 # Use ActiveModel has_secure_password
