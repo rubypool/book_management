@@ -35,6 +35,7 @@ group :development, :test do
   gem "selenium-webdriver"
   gem 'chromedriver-helper'
   gem 'simplecov'
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password

@@ -1,16 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, :type => :controller do
-	local_path = "http://localhost:3000"
 
-	describe 'Create new user' do
-	  it 'lets the user to insert usename', :js => true do
-	    visit local_path + root_path
-	    click_on 'New User'
-	    fill_in 'user_name', :with => 'T. Savani'
-	    fill_in 'user_age', :with => '25'
-	    click_on 'Create User'  # this be an Ajax button -- requires Selenium
-	    page.should have_content('User was successfully created.')
-	  end
- 	end
+  describe 'index' do
+    it 'should respond successfully with HTTP 200 code' do
+      get :index
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it 'should render template index' do
+      get :index
+      expect(response).to render_template("index")
+    end
+  end
+
+  describe 'create new user' do
+    it 'should create new user' do
+      user = {name: 'Saurabh', age: 25}
+      post :create, user: user
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to user_path(User.all.last)
+    end
+  end
+
 end
